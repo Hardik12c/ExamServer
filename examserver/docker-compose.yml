@@ -1,0 +1,22 @@
+services:
+  postgres:
+    container_name: examportal
+    image: postgres
+    environment:
+      POSTGRES_USER: Hardik
+      POSTGRES_PASSWORD: Hard123@c
+      PGDATA: /data/postgres
+    volumes:
+      - db:/datapostgres
+    ports:
+      - "5323:5432"
+    networks:
+      - db
+    restart: unless-stopped
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:
